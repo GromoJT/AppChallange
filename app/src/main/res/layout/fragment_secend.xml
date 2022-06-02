@@ -3,20 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment"
+    tools:context=".SecendFragment"
     android:layout_margin="10dp"
     android:padding="10dp"
     android:screenOrientation="portrait"
     >
 
 
-    <TextView
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gif_duck"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="HOME"
-        android:gravity="center"
-        android:textSize="60sp"
-        android:textStyle="bold"
-        />
+        android:src="@drawable/giphy"/>
 
 </RelativeLayout>
