@@ -43,7 +43,10 @@ class MainActivity : AppCompatActivity() {
             it.isCheckable=true
 
             when(it.itemId){
-                R.id.nav_home -> replaceFragment(HomeFragment(),it.title.toString())
+                R.id.nav_home -> {
+                    replaceFragment(HomeFragment(),it.title.toString())
+                    toolbar.title = it.title.toString()
+                }
                 R.id.nav_menu_1 -> replaceFragment(FirstFragment(),it.title.toString())
                 R.id.nav_menu_2 -> replaceFragment(SecendFragment(),it.title.toString())
                 R.id.nav_menu_3 -> Toast.makeText(applicationContext,"Kliknięto 3",Toast.LENGTH_SHORT).show()
