@@ -2,8 +2,13 @@ package com.example.challanger
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.AutoCompleteTextView
+import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.graphics.toColor
 import androidx.drawerlayout.widget.DrawerLayout
@@ -14,26 +19,27 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var toggle: ActionBarDrawerToggle
     lateinit var drawerLayout: DrawerLayout
+    lateinit var toolbar: Toolbar
+    lateinit var welcomeTextView: TextView
+    lateinit var navView: NavigationView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        //supportActionBar?.title ="TESTER"
-
+        welcomeTextView = findViewById(R.id.welcome_text)
+        toolbar = findViewById(R.id.toolbar)
         drawerLayout = findViewById(R.id.drawerLayout)
-        val navView: NavigationView = findViewById(R.id.nav_view)
-
-        toggle = ActionBarDrawerToggle(this,drawerLayout,R.string.open,R.string.close)
-
+        navView= findViewById(R.id.nav_view)
+        toolbar.inflateMenu(R.menu.toolbar_menu)
+        toggle = ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.open,R.string.close)
+        toggle.isDrawerIndicatorEnabled = true
         drawerLayout.addDrawerListener(toggle)
-
         toggle.syncState()
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        replaceFragment(HomeFragment(),"Home")
 
         navView.setNavigationItemSelectedListener {
-
+            welcomeTextView.visibility = View.GONE
             it.isCheckable=true
 
             when(it.itemId){
@@ -46,8 +52,19 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+        toolbar.setOnMenuItemClickListener {
+            welcomeTextView.visibility = View.GONE
+            it.isCheckable=true
+            when(it.itemId){
+                R.id.hot -> replaceFragment(HotFragment(),it.title.toString())
+                R.id.tobeyond -> Toast.makeText(applicationContext,"To beyond!",Toast.LENGTH_SHORT).show()
+            }
+            true
+        }
 
     }
+
+
 
     private fun replaceFragment(fragment: Fragment, title:String){
         val fragmentMenager = supportFragmentManager
@@ -67,4 +84,11 @@ class MainActivity : AppCompatActivity() {
 
         return super.onOptionsItemSelected(item)
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.toolbar_menu,menu)
+        return true
+    }
+
+
 }

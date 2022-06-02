@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/tobeyond"
+        android:title="noSex"
+        android:icon="@drawable/ic_tobeyond"
+        android:tooltipText="noSex"
+        app:showAsAction="ifRoom"
+        />
+    <item
+        android:id="@+id/hot"
+        android:title="Sex"
+        android:icon="@drawable/ic_hot"
+        android:tooltipText="Sex"
+        app:showAsAction="ifRoom"
+        />
+
+</menu>
