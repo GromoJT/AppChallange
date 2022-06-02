@@ -3,30 +3,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <item
-        android:id="@+id/nav_home"
-        android:icon="@drawable/ic_baseline_home_24"
-        android:title="Home"/>
-    <item
-        android:id="@+id/nav_menu_1"
-        android:icon="@drawable/ic_baseline_1k_24"
-        android:title="Jeden"/>
-    <item
-        android:id="@+id/nav_menu_2"
-        android:icon="@drawable/ic_baseline_2k_24"
-        android:title="Dwa"/>
-    <item
-        android:id="@+id/nav_menu_3"
-        android:icon="@drawable/ic_baseline_3k_24"
-        android:title="Trzy"/>
-
-    <item android:title="Cztery">
-        <menu>
+    <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_menu_5"
-            android:title="Pięć"
-            android:icon="@drawable/ic_baseline_5k_24"
-            />
-        </menu>
-    </item>
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_baseline_home_24"
+            android:title="Home"/>
+        <item
+            android:id="@+id/nav_menu_1"
+            android:icon="@drawable/ic_baseline_1k_24"
+            android:title="Jeden"/>
+        <item
+            android:id="@+id/nav_menu_2"
+            android:icon="@drawable/ic_baseline_2k_24"
+            android:title="Dwa"/>
+        <item
+            android:id="@+id/nav_menu_3"
+            android:icon="@drawable/ic_baseline_3k_24"
+            android:title="Trzy"/>
+
+        <item android:title="Cztery">
+            <menu>
+                <item
+                    android:id="@+id/nav_menu_5"
+                    android:title="Pięć"
+                    android:icon="@drawable/ic_baseline_5k_24"
+                    />
+            </menu>
+        </item>
+    </group>
+
 </menu>
